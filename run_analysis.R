@@ -1,5 +1,3 @@
-
-
 ###preparation of TEST DATA
 
 ##reading data sets into environment
@@ -11,7 +9,7 @@ y_test<-read.table("./test/y_test.txt")
 
 
 ##reading test inertial signals files
-inertial_sig_test_path<-"C:/Users/Tomek/Documents/Data Science Track/3. Getting and cleaning data/project/getting and cleaning data/test/Inertial Signals"
+inertial_sig_test_path<-"./test/Inertial Signals"
 list_data<-list.files(inertial_sig_test_path,full.names=TRUE) #list files in directory with path
 list_names<-list.files(inertial_sig_test_path)               #list name of files in directory 
 
@@ -20,7 +18,7 @@ for(i in 1:length(list_data)) { #for every file create dataframe
   w<-read.table(list_data[i]) # read file into w
   
   #naming all variables in dataframe
-  varname<-substr(name,1,nchar(name)-9)  #substring of filename to exclude "_test.txt"
+  varname<-substr(name,1,nchar(name)-8)  #substring of filename to exclude "_test.txt"
   for (j in 1:128){                #for every variable change name
     names(w)[j]<-paste(varname,"read_",j,sep="")  #assign name to variables in currently processed file, example of name: body_acc_y_read_1
   }
@@ -70,7 +68,7 @@ test<-cbind(
   body_gyro_x_test,
   body_gyro_y_test,
   body_gyro_z_test
-  )
+)
 
 ###preparation of TRAIN DATA
 
@@ -82,7 +80,7 @@ x_train<-read.table("./train/x_train.txt")
 y_train<-read.table("./train/y_train.txt")
 
 ##reading train inertial signals files
-inertial_sig_train_path<-"C:/Users/Tomek/Documents/Data Science Track/3. Getting and cleaning data/project/getting and cleaning data/train/Inertial Signals"
+inertial_sig_train_path<-"./train/Inertial Signals"
 list_data<-list.files(inertial_sig_train_path,full.names=TRUE) #list files in directory with path
 list_names<-list.files(inertial_sig_train_path)               #list name of files in directory 
 
