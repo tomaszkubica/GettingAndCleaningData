@@ -5,13 +5,13 @@ Getting and Cleaning Data Course Project - description of particular blocks with
 
 ###1. preparation of TEST data:
 read data sets into data frames
-* reading all sets suppllied with use of read.table() function
+* reading all sets needed for coursera project with use of read.table() function
 * additional block for reading inertial signals files (not necessary for 
-project but cast in case to have all data together)
+cousera project but just in case to have all data together)
   * using list.files() function to read file names inertial signals data with 
 directories
   * using for loop to process all files (read and rename)
-  * using another internal for loop rename all 128 variables within the files with similar pattern
+  * using another internal for loop rename all 128 variables within the inertial signals files with similar pattern
 
 modify particular data frames
 * apply features name from features.txt to x_test data frame 
@@ -24,19 +24,19 @@ modify particular data frames
 * modify particular data frames 
 
 ###3. binding both sets: train and test
-* creating final data frame as union of test and train data frames 
+* creating final data frame as union of test and train data frames (rbind() function)
 
 ###4. limiting variables in final data frame to: subject & activity identifiers and mean & standard deviation characteristics
 * using regular patterns to match expected variables
 
 ### 5. calculation of average of each variable for each activity and each subject
-* using  for loop and aggregate function to prepare needed mean calculation 
+* using  for loop and aggregate() function to prepare needed mean calculation 
 per subject and activity
 * adding one by one calculated means to new data frame 
 
 ### 6. final tuning of variables names to exclude "()" and "-"
-* using gsub function and regular patterns to rename variables  
+* using gsub() function and regular patterns to rename variables  
 
 ### 7. displaying output
-* using view() function to open final3 data frane
+* using view() function to open final3 data frame
 * similarly displaying data frame in console
